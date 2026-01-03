@@ -8,7 +8,7 @@ const OrderSchema = new mongoose.Schema({
   address: { type: String, required: true },
   city: { type: String, required: true },
   zip: { type: String, required: true },
-  orderDate: { type: Date, default: Date.now } // Auto-add timestamp
+  orderDate: { type: Date, default: Date.now }
 });
 
 module.exports = mongoose.model('Order', OrderSchema);

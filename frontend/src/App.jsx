@@ -7,7 +7,8 @@ import ProductLineup from './components/ProductLineup';
 import Marquee from './components/Marquee';
 import Footer from './components/Footer';
 import About from './components/About';
-import PreOrder from './components/PreOrder'; // ✅ Import this!
+import PreOrder from './components/PreOrder';
+import AdminPanel from './components/AdminPanel'; // ✅ Import this
 
 const HomePage = () => {
   return (
@@ -29,9 +30,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Navigate to="/Home" replace />} />
           <Route path="/Home" element={<HomePage />} />
-          
-          {/* ✅ Add the Pre-Order Route */}
           <Route path="/pre-order" element={<PreOrder />} />
+          
+          {/* ✅ New Admin Route */}
+          <Route path="/admin" element={<AdminPanel />} />
           
           <Route path="*" element={<Navigate to="/Home" replace />} />
         </Routes>
