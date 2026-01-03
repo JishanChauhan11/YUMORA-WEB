@@ -1,10 +1,24 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion'; // Added AnimatePresence
 import { ShoppingBag, Menu, X } from 'lucide-react';
 import './Navbar.css';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const menuVariants = {
+    hidden: { opacity: 0, height: 0 },
+    visible: { 
+      opacity: 1, 
+      height: "auto",
+      transition: { duration: 0.3 }
+    },
+    exit: { 
+      opacity: 0, 
+      height: 0,
+      transition: { duration: 0.2 }
+    }
+  };
 
   return (
     <nav className="navbar">
@@ -41,10 +55,27 @@ const Navbar = () => {
           </motion.button>
           
           <div className="mobile-menu-btn" onClick={() => setIsOpen(!isOpen)}>
-            {isOpen ? <X /> : <Menu />}
+            {isOpen ? <X color="white" /> : <Menu color="white" />}
           </div>
         </div>
       </div>
+
+      {/* --- MOBILE MENU (New Part) --- */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div 
+            className="mobile-nav-list"
+            variants={menuVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+          >
+            <a href="#products" onClick={() => setIsOpen(false)}>Products</a>
+            <a href="#technology" onClick={() => setIsOpen(false)}>Technology</a>
+            <a href="#" onClick={() => setIsOpen(false)}>About</a>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 };
