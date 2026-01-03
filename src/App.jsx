@@ -3,8 +3,9 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import TechSpecs from './components/TechSpecs';
 import ProductLineup from './components/ProductLineup';
-import Marquee from './components/Marquee'; // Import
-import Footer from './components/Footer';   // Import
+import Marquee from './components/Marquee';
+import Footer from './components/Footer';
+import About from './components/About'; // Import the new component
 
 function App() {
   return (
@@ -12,9 +13,10 @@ function App() {
       <Navbar />
       <Hero />
       <TechSpecs />
-      <Marquee /> {/* The Moving Text Strip */}
+      <Marquee />
       <ProductLineup />
-      <Footer /> {/* The End */}
+      <About /> {/* Add the About Section here */}
+      <Footer />
     </div>
   )
 }

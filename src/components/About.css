@@ -1,0 +1,137 @@
+.about-section {
+    padding: 120px 10%;
+    background-color: #050505;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Background "Y" letter watermark */
+.about-section::before {
+    content: 'Y';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    font-size: 400px;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.02);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.about-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+/* Header Styles */
+.about-header {
+    max-width: 800px;
+    margin-bottom: 80px;
+}
+
+.subtitle {
+    color: var(--accent);
+    letter-spacing: 3px;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.about-header h2 {
+    font-size: 48px;
+    line-height: 1.1;
+    margin-bottom: 30px;
+    color: white;
+}
+
+.highlight-text {
+    color: transparent;
+    -webkit-text-stroke: 1px #fff;
+    opacity: 0.5;
+}
+
+.about-header p {
+    font-size: 18px;
+    color: #888;
+    line-height: 1.6;
+    max-width: 600px;
+}
+
+.about-header strong {
+    color: white;
+}
+
+/* --- BENTO GRID LAYOUT --- */
+.bento-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr 1fr; /* Middle card is slightly wider */
+    gap: 30px;
+}
+
+.bento-card {
+    padding: 40px;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: 0.4s;
+    cursor: default;
+}
+
+.bento-card:hover {
+    transform: translateY(-10px);
+}
+
+/* Style 1: Dark Card */
+.card-dark {
+    background: #0f0f0f;
+    border: 1px solid #222;
+}
+
+.card-dark:hover { border-color: #444; }
+.card-dark h3 { font-size: 24px; color: white; margin: 20px 0 10px; }
+.card-dark p { color: #777; font-size: 15px; }
+.icon-accent { color: var(--accent); }
+
+/* Style 2: Accent (Red) Card */
+.card-accent {
+    background: var(--accent);
+    color: white;
+    box-shadow: 0 20px 40px rgba(255, 59, 59, 0.2);
+    text-align: center;
+    align-items: center;
+}
+
+.card-accent:hover {
+    box-shadow: 0 30px 60px rgba(255, 59, 59, 0.4);
+}
+
+.card-accent h3 { font-size: 16px; opacity: 0.8; letter-spacing: 2px; text-transform: uppercase; }
+.card-accent p { font-size: 14px; opacity: 0.8; margin-top: 10px; }
+
+.big-number {
+    font-size: 80px;
+    font-weight: 900;
+    line-height: 1;
+    margin: 10px 0;
+}
+
+/* Style 3: Glass Card */
+.card-glass {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.card-glass h3 { font-size: 24px; color: white; margin: 20px 0 10px; }
+.card-glass p { color: #888; font-size: 15px; }
+.icon-white { color: white; }
+
+/* Mobile Responsiveness */
+@media (max-width: 1024px) {
+    .bento-grid { grid-template-columns: 1fr; } /* Stack them on mobile */
+    .about-header h2 { font-size: 36px; }
+}
